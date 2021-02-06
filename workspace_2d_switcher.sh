@@ -5,20 +5,20 @@
 #wraps around like in old NES games
 
 #For some reason, mint cinnamon only supports a single row of workspaces
-#The basic idea of this script is to find the 1d workspace assuming a 2D
+#The basic idea of this script is to find the 1D workspace index assuming a 2D
 #grid of size ni x nj
 
-#2D layout for the workspaces is provided by the workspace grid (2D) and switcher
-#xdotool  is used for switching to a specific workspace
+#2D layout for the workspaces is provided by the "workspace grid (2D) and switcher" applet.
+#"xdotool" is used for switching to a specific workspace
 #both must be instaled for this to work
 
 #this script must be called with "up" "down" "left" "right" as a single argument
 #
-#  eg:      workspace_2d_switcher.sh left
+#  eg:      ./workspace_2d_switcher.sh left
 
 #the script is then run through a custom keyboard shortcuts that you must set.
 #
-# eg:   <control>Left    calls the script as above
+# eg:   [<control>Left]    calls the script as above
 
 
 #grid size must be  hard coded as I have'nt figure out a way to read this info anywhere
@@ -37,7 +37,7 @@
 #     i >  0     1     2     3     4
 
 
-set -ex
+#set -ex
 
 #number of columns
 ni=5
@@ -87,6 +87,7 @@ elif [[ $direction == right ]] ; then
     else
         i_ind=$(( $i_ind + 1 ))
     fi
+
 else
     echo 'Argument may only be "up" "down" "left" "right"'
     exit 1
